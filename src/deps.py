@@ -7,20 +7,33 @@ PATH_DADOS = '../Dados-Enchente/'
 
 PATH_VOL = PATH_DADOS + 'Voluntarios/voluntarios.csv'
 PATH_ABR = PATH_DADOS + 'Abrigados/abrigados.csv'
+PATH_SAUDE = PATH_DADOS + 'Saude/saude.csv'
 
 
 def create_empty_csv(path):
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    df = pd.DataFrame(columns=[
-        'Nome',
-        'CPF',
-        'Profissao',
-        'Atuacao',
-        'Telefone',
-        'Entrada',
-        'Saida',
-    ]
-    )
+    if path==PATH_SAUDE: 
+        df = pd.DataFrame(columns=[
+            'Nome',
+            'CPF',
+            'Registro',
+            'Sala',
+            'Telefone',
+            'Entrada',
+            'Saida',
+        ]
+        )
+    else:
+        df = pd.DataFrame(columns=[
+            'Nome',
+            'CPF',
+            'Profissao',
+            'Atuacao',
+            'Telefone',
+            'Entrada',
+            'Saida',
+        ]
+        )
 
     df.to_csv(path, sep=";", index=False)
 

@@ -9,6 +9,7 @@ def entrada(tipo):
     match tipo:
         case 'voluntário': caminho = deps.PATH_VOL
         case 'abrigado': caminho = deps.PATH_ABR
+        case 'saude': caminho = deps.PATH_SAUDE
 
     janela = tk.Tk()
     janela.resizable(False, False)
